@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 
 const CloseIcon = ({ color, size, onClick, hoverColor }) => {
@@ -5,7 +7,6 @@ const CloseIcon = ({ color, size, onClick, hoverColor }) => {
 
   return (
     <svg
-      // fill={isHovered ? hoverColor : color}
       stroke={isHovered ? hoverColor : color}
       width={size}
       height={size}
@@ -17,12 +18,19 @@ const CloseIcon = ({ color, size, onClick, hoverColor }) => {
         position: 'absolute',
         top: '16px',
         right: '16px',
-        transition: 'stroke cubic-bezier(0.4, 0, 0.2, 1)', //fill чи stroke
+        transition: 'stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
       <use href={'/sprite.svg#close'} />
     </svg>
   );
+};
+
+CloseIcon.propTypes = {
+  color: PropTypes.string.isRequired,
+  hoverColor: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default CloseIcon;

@@ -5,6 +5,8 @@ import SideBar from '../SideBar/SideBar';
 import { Toaster } from 'react-hot-toast';
 // import { Loader } from './Loader/Loader';
 
+const i = 1;
+
 const SharedLayout = () => {
   return (
     <StyledMain>

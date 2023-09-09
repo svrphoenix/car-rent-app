@@ -1,17 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const SideBarWrapper = styled.div`
-  /* display: flex; */
+const StyledSideBar = styled.aside`
   width: 240px;
-  padding: 16px 0; //підібрати
+  padding: 8px 0 50px 0;
   min-height: 100vh;
   height: auto;
   background-color: #3470ff;
 `;
 
 const StyleMenuWrapper = styled.ul`
-  margin-top: 40px;
+  margin-top: 32px;
 `;
 
 const StyleMenuItem = styled.li`
@@ -38,4 +37,4 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export { SideBarWrapper, StyleMenuWrapper, StyleMenuItem, StyledLink };
+export { StyledSideBar, StyleMenuWrapper, StyleMenuItem, StyledLink };

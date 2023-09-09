@@ -8,10 +8,9 @@ const StyledButton = styled.button`
   background-color: transparent;
   border-color: transparent;
   color: #3470ff;
-  font-family: Manrope;
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 150%;
   text-decoration-line: underline;
   &:hover,
   &:focus {

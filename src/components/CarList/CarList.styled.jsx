@@ -5,7 +5,7 @@ const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: 30px; //29px  на макеті
+  column-gap: 30px;
   row-gap: 50px;
 `;
 

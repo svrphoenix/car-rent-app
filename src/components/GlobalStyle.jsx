@@ -43,14 +43,6 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Inter';
-  src: local('Inter Medium'), local('Inter-Medium'),
-    url('/fonts/Inter-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
@@ -62,10 +54,52 @@ const GlobalStyle = createGlobalStyle`
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: auto;
+
+   @media screen and (min-width: 768px) { 
+    scrollbar-width: auto;
+  } 
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;  
+}
+
+
+/* *::-webkit-scrollbar-track {
+  background: 'black';
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: 'gray';
+  border-radius: 50px;
+} */
+
+/* *::-webkit-scrollbar-track {
+  background: 'lightgray';
+} */
+
+
+
 body {
   margin: 0;
   min-width: 320px;
-  width: 100vw;
   font-family: Manrope;
 }
 
@@ -102,11 +136,6 @@ a:hover {
   min-height: 100vh;
 } */
 
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-
 img{
 display: block;
   max-width: 100%;
@@ -114,12 +143,11 @@ display: block;
 }
 
 button {
-  border: 1px solid transparent; //?????
+  border: 1px solid transparent; //!!!!!!
   font-family: inherit;
   cursor: pointer;
   /* transition: border-color 0.25s; */
 }
-
 
 .hidden{
   overflow: hidden;
@@ -145,17 +173,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+*/
 `;
 export default GlobalStyle;

@@ -1,8 +1,8 @@
-import { SideBarWrapper, StyledLink, StyleMenuItem, StyleMenuWrapper } from './SideBar.styled';
+import { StyledSideBar, StyledLink, StyleMenuItem, StyleMenuWrapper } from './SideBar.styled';
 
 const SideBar = () => {
   return (
-    <SideBarWrapper>
+    <StyledSideBar>
       <img src="/car-rent-logo.png" alt="Logo" />
       <nav>
         <StyleMenuWrapper>
@@ -17,8 +17,8 @@ const SideBar = () => {
           </StyleMenuItem>
         </StyleMenuWrapper>
       </nav>
-      <img src="/car-picture.png" alt="Car picture" style={{ marginTop: '120px' }} />
-    </SideBarWrapper>
+      <img src="/car-picture.png" alt="Car picture" style={{ transform: 'rotate(-10deg)' }} />
+    </StyledSideBar>
   );
 };
 

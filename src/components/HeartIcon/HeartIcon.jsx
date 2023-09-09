@@ -1,8 +1,6 @@
-// import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const HeartIcon = ({ color, size, handleClick, activeColor, isActive }) => {
-  // const [isHovered, setIsHovered] = useState(false);
-
   return (
     <svg
       fill={isActive ? activeColor : 'transparent'}
@@ -10,8 +8,6 @@ const HeartIcon = ({ color, size, handleClick, activeColor, isActive }) => {
       width={size}
       height={size}
       onClick={handleClick}
-      // onMouseEnter={() => setIsHovered(true)}
-      // onMouseLeave={() => setIsHovered(false)}
       style={{
         cursor: 'pointer',
         position: 'absolute',
@@ -23,6 +19,14 @@ const HeartIcon = ({ color, size, handleClick, activeColor, isActive }) => {
       <use href={'/sprite.svg#heart'} />
     </svg>
   );
+};
+
+HeartIcon.propTypes = {
+  color: PropTypes.string.isRequired,
+  activeColor: PropTypes.string.isRequired,
+  isActive: PropTypes.bool,
+  size: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default HeartIcon;

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-
   width: 274px;
   height: 426px;
   border: 0 none;
@@ -99,36 +97,12 @@ const StyledButton = styled.button`
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 143%;
   &:hover,
   &:focus {
     background-color: #0b44cd;
     border-color: #0b44cd;
   }
-`;
-
-const StyledFavoriteIcon = styled.svg`
-  cursor: pointer;
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  width: 18px;
-  height: 18px;
-  fill: rgba(255, 255, 255, 0.8);
-  /* margin-top: auto;
-  width: 100%;
-  padding: 12px 0;
-  border-radius: 12px;
-  background-color: #3470ff;
-  color: #fff;
-  font-family: Manrope;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px; /* 142.857% 
-  &:hover,
-  &:focus {
-    background-color: #0b44cd;
-  } */
 `;
 
 export {
@@ -144,5 +118,4 @@ export {
   StyledCarDetailsText,
   StyledButton,
   CarHeaderWrapper,
-  StyledFavoriteIcon,
 };

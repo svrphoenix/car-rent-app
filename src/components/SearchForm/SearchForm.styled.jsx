@@ -3,24 +3,24 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 18px;
   justify-content: center;
 `;
 
 const Field = styled.div`
-  /* width: 224px; */
-  /* height: auto; */
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding-bottom: 16px;
+  position: relative;
 `;
 
 const labelStyles = `
   color: #8a8a89;
-  /* font-family: Manrope; */
   font-size: 14px;
   font-weight: 500;
-  line-height: 18px; //???18/14
+  line-height: 128%; 
 `;
 
 const InputLabel = styled.label`
@@ -32,24 +32,21 @@ const InputGroupLabel = styled.p`
 `;
 
 const StyledInput = styled.input`
-  position: relative;
-
   padding: 14px 18px 14px 18px;
   border-radius: 14px;
   border-color: transparent;
   outline-color: transparent;
-
   background-color: #f7f7fb;
   color: #121417;
-
-  /* font-family: Manrope; */
   font-size: 18px;
-  /* font-style: normal; */
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: 110%;
+  position: relative;
+
   &::placeholder {
     color: #121417;
   }
+
   /* Webkit (Chrome, Safari, Edge) */
   &::-webkit-calendar-picker-indicator {
     /* Your styles here */
@@ -114,7 +111,6 @@ const InputMax = styled.input`
   font-weight: 500;
   line-height: 20px; /* 111.111% */
   &::placeholder {
-    
     color: #121417;
   }
 `;
@@ -154,9 +150,18 @@ const StyledOption = styled.option`
   }
 `;
 
+const Error = styled.p`
+  color: red;
+  width: 100px;
+  font-size: 10px;
+  position: absolute;
+  bottom: -20px;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+  padding-bottom: 16px;
 `;
 
 const StyledButton = styled.button`
@@ -204,4 +209,5 @@ export {
   InputMax,
   ButtonWrapper,
   StyledButton,
+  Error,
 };

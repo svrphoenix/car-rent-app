@@ -11,6 +11,4 @@ const LoadMore = () => {
   );
 };
 
-LoadMore.propTypes = {};
-
 export default LoadMore;

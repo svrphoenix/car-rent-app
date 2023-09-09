@@ -16,6 +16,7 @@ const App = () => {
   useEffect(() => {
     dispatch(getAdverts(page));
   }, [dispatch, page]);
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

@@ -1,11 +1,24 @@
-import { nanoid } from '@reduxjs/toolkit';
-import { useState } from 'react';
-
-import * as SC from './SearchForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+
+import {
+  StyledForm,
+  InputLabel,
+  InputGroupLabel,
+  StyledInput,
+  Field,
+  StyledDatalist,
+  StyledOption,
+  InputMin,
+  InputMax,
+  ButtonWrapper,
+  StyledButton,
+  Error,
+} from './SearchForm.styled';
 import { setFilter } from '../../redux/slice';
 import { selectFilter } from '../../redux/selectors';
 import brands from '../../data/makes.json';
+import useForm from '../../hooks/useForm';
 
 const INITIAL_STATE = {
   carBrand: '',
@@ -24,31 +37,30 @@ const SearchForm = () => {
     return { carBrand, maxPrice, min: mileageRange.min, max: mileageRange.max };
   };
 
-  const [values, setValues] = useState(CreateInitialFilter);
+  const { values, errors, handleInputChange, reset } = useForm(CreateInitialFilter);
 
-  const reset = () => {
-    setValues({ ...INITIAL_STATE });
+  const resetFilter = () => {
+    reset(INITIAL_STATE);
     dispatch(setFilter(null));
   };
 
   const carBrandId = nanoid();
   const maxPriceId = nanoid();
 
-  const handleInputChange = evt => {
-    setValues({ ...values, [evt.target.name]: evt.target.value });
-  };
-
   const handleSubmit = evt => {
     evt.preventDefault();
     const { carBrand, maxPrice, min, max } = values;
-    dispatch(setFilter({ carBrand, maxPrice, mileageRange: { min, max } }));
+    console.log(errors);
+    if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+      dispatch(setFilter({ carBrand: carBrand, maxPrice, mileageRange: { min, max } }));
+    }
   };
 
   return (
-    <SC.StyledForm onSubmit={handleSubmit}>
-      <SC.Field>
-        <SC.InputLabel htmlFor={carBrandId}>Car brand </SC.InputLabel>
-        <SC.StyledInput
+    <StyledForm onSubmit={handleSubmit}>
+      <Field>
+        <InputLabel htmlFor={carBrandId}>Car brand </InputLabel>
+        <StyledInput
           style={{ width: 200 }}
           list="brands"
           placeholder="Enter the text"
@@ -58,15 +70,15 @@ const SearchForm = () => {
           autoComplete="off"
           onChange={handleInputChange}
         />
-        <SC.StyledDatalist id="brands">
+        <StyledDatalist id="brands">
           {brands.map((brand, idx) => (
-            <SC.StyledOption key={idx}>{brand}</SC.StyledOption>
+            <StyledOption key={idx}>{brand}</StyledOption>
           ))}
-        </SC.StyledDatalist>
-      </SC.Field>
-      <SC.Field>
-        <SC.InputLabel htmlFor={maxPriceId}>Price / 1 hour</SC.InputLabel>
-        <SC.StyledInput
+        </StyledDatalist>
+      </Field>
+      <Field>
+        <InputLabel htmlFor={maxPriceId}>Price / 1 hour</InputLabel>
+        <StyledInput
           style={{ width: 120 }}
           list="prices"
           placeholder="To $"
@@ -76,19 +88,19 @@ const SearchForm = () => {
           autoComplete="off"
           onChange={handleInputChange}
         />
-
-        <SC.StyledDatalist id="prices">
+        <StyledDatalist id="prices">
           <option>30</option>
           <option>40</option>
           <option>50</option>
           <option>100</option>
           <option>200</option>
-        </SC.StyledDatalist>
-      </SC.Field>
-      <SC.Field role="group" aria-labelledby="mileage-inputs">
-        <SC.InputGroupLabel id="mileage-inputs">Сar mileage / km</SC.InputGroupLabel>
+        </StyledDatalist>
+        {errors.maxPrice && <Error>{errors.maxPrice}</Error>}
+      </Field>
+      <Field role="group" aria-labelledby="mileage-inputs">
+        <InputGroupLabel id="mileage-inputs">Сar mileage / km</InputGroupLabel>
         <div>
-          <SC.InputMin
+          <InputMin
             placeholder="From"
             type="text"
             name="min"
@@ -96,7 +108,9 @@ const SearchForm = () => {
             onChange={handleInputChange}
             autoComplete="off"
           />
-          <SC.InputMax
+          {errors.min && <Error>{errors.min}</Error>}
+
+          <InputMax
             placeholder="To"
             type="text"
             name="max"
@@ -104,17 +118,18 @@ const SearchForm = () => {
             onChange={handleInputChange}
             autoComplete="off"
           />
+          {errors.max && <Error style={{ left: 100 }}>{errors.max}</Error>}
         </div>
-      </SC.Field>
-      <SC.ButtonWrapper>
-        <SC.StyledButton type="submit">Submit</SC.StyledButton>
-      </SC.ButtonWrapper>
-      <SC.ButtonWrapper>
-        <SC.StyledButton type="button" disabled={!filter} onClick={reset}>
+      </Field>
+      <ButtonWrapper>
+        <StyledButton type="submit">Submit</StyledButton>
+      </ButtonWrapper>
+      <ButtonWrapper>
+        <StyledButton type="button" disabled={!filter} onClick={resetFilter}>
           Reset
-        </SC.StyledButton>
-      </SC.ButtonWrapper>
-    </SC.StyledForm>
+        </StyledButton>
+      </ButtonWrapper>
+    </StyledForm>
   );
 };
 
