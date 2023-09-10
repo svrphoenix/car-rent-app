@@ -117,7 +117,6 @@ const InputMax = styled.input`
 
 const StyledDatalist = styled.datalist`
   position: absolute;
-  /* max-height: 20em; */
   border: 0 none;
   /* left: -50%; */
   overflow-x: hidden;
@@ -140,7 +139,8 @@ const StyledDatalist = styled.datalist`
 const StyledOption = styled.option`
   font-size: 0.8em;
   padding: 0.3em 1em;
-  background-color: #ccc;
+  /* background-color: #ccc; */
+  background-color: red;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -166,23 +166,15 @@ const ButtonWrapper = styled.div`
 
 const StyledButton = styled.button`
   cursor: pointer;
-  /* display: inline-flex; */
   margin-top: auto;
   padding: 14px 44px;
-
-  /* justify-content: center; */
-  /* align-items: center;
-   */
-  /* margin-top: auto; */
-  /* width: 100%; */
-  /* padding: 12px 0; */
   border-radius: 12px;
   background-color: #3470ff;
   color: #fff;
   font-family: Manrope;
   font-size: 14px;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 143%;
   &:hover,
   &:focus {
     background-color: #0b44cd;

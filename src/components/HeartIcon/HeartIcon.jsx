@@ -16,7 +16,7 @@ const HeartIcon = ({ color, size, handleClick, activeColor, isActive }) => {
         transition: 'fill 250ms cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
-      <use href={'/sprite.svg#heart'} />
+      <use href={'./assets/sprite.svg#heart'} />
     </svg>
   );
 };

@@ -10,7 +10,7 @@ const StyledSideBar = styled.aside`
 `;
 
 const StyleMenuWrapper = styled.ul`
-  margin-top: 32px;
+  margin: 32px 0 120px 0;
 `;
 
 const StyleMenuItem = styled.li`
@@ -37,4 +37,9 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export { StyledSideBar, StyleMenuWrapper, StyleMenuItem, StyledLink };
+const Image = styled.img`
+  max-width: 208px;
+  width: 208px;
+`;
+
+export { StyledSideBar, StyleMenuWrapper, StyleMenuItem, StyledLink, Image };

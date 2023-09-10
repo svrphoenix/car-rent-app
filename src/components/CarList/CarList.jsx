@@ -1,29 +1,9 @@
 import PropTypes from 'prop-types';
-import { useLayoutEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
 import CarCard from '../CarCard/CarCard';
 import { StyledList } from './CarList.styled';
-import { selectFilter, selectPage } from '../../redux/selectors';
 
 const CarList = ({ cars, handleFavoriteClick }) => {
-  // const filter = useSelector(selectFilter);
-  const page = useSelector(selectPage);
-  const isMounted = useRef(false);
-
-  useLayoutEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    if (page > 1) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
-    }
-  });
-
   return (
     <StyledList>
       {cars.map(car => (

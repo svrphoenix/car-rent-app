@@ -24,7 +24,6 @@ const advertsSlice = createSlice({
   },
   reducers: {
     incrementPage(state) {
-      // state.filter = null;
       state.page = state.page + 1;
     },
 

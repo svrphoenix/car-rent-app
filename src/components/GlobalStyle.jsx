@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Montserrat';
   src: local('Montserrat Regular'), local('Montserrat-Regular'),
-    url('/fonts/Montserrat-Regular.woff2') format('woff2');
+    url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Montserrat';
   src: local('Montserrat Semi Bold'), local('Montserrat-Semi-Bold'),
-    url('/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Semi bold'), local('Manrope--Semi-bold'),
-    url('/fonts/Manrope-Semibold.woff2') format('woff2');
+    url('./assets/fonts/Manrope-Semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Medium'), local('Manrope--Medium'),
-    url('/fonts/Manrope-Medium.woff2') format('woff2');
+    url('./assets/fonts/Manrope-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Regular'), local('Manrope--Regular'),
-    url('/fonts/Manrope-Regular.woff2') format('woff2');
+    url('./assets/fonts/Manrope-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -80,23 +80,6 @@ const GlobalStyle = createGlobalStyle`
   background-clip: padding-box;  
 }
 
-
-/* *::-webkit-scrollbar-track {
-  background: 'black';
-  border-radius: 50px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: 'gray';
-  border-radius: 50px;
-} */
-
-/* *::-webkit-scrollbar-track {
-  background: 'lightgray';
-} */
-
-
-
 body {
   margin: 0;
   min-width: 320px;
@@ -119,23 +102,6 @@ ol {
   list-style: none;
 }
 
-/* a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-} */
-
-/* body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-} */
-
 img{
 display: block;
   max-width: 100%;
@@ -143,36 +109,14 @@ display: block;
 }
 
 button {
-  border: 1px solid transparent; //!!!!!!
+  border: 1px solid transparent; 
   font-family: inherit;
   cursor: pointer;
-  /* transition: border-color 0.25s; */
 }
 
 .hidden{
   overflow: hidden;
 }
 
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-*/
 `;
 export default GlobalStyle;

@@ -21,7 +21,7 @@ const CloseIcon = ({ color, size, onClick, hoverColor }) => {
         transition: 'stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
-      <use href={'/sprite.svg#close'} />
+      <use href={'./assets/sprite.svg#close'} />
     </svg>
   );
 };

@@ -1,5 +1,12 @@
+import MainSection from '../components/MainSection/MainSection';
+import { StyledContainer } from './common.styled';
+
 const MainPage = () => {
-  return <div style={{ height: '100vh', width: '100%' }}>MainPage</div>;
+  return (
+    <StyledContainer>
+      <MainSection />
+    </StyledContainer>
+  );
 };
 
 export default MainPage;

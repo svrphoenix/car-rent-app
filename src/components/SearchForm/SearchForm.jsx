@@ -19,6 +19,7 @@ import { setFilter } from '../../redux/slice';
 import { selectFilter } from '../../redux/selectors';
 import brands from '../../data/makes.json';
 import useForm from '../../hooks/useForm';
+import toast from 'react-hot-toast';
 
 const INITIAL_STATE = {
   carBrand: '',
@@ -46,14 +47,14 @@ const SearchForm = () => {
 
   const carBrandId = nanoid();
   const maxPriceId = nanoid();
+  const priceOptions = Array.apply(null, { length: 15 }).map((_, index) => index * 10 + 10);
 
   const handleSubmit = evt => {
     evt.preventDefault();
     const { carBrand, maxPrice, min, max } = values;
-    console.log(errors);
     if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
       dispatch(setFilter({ carBrand: carBrand, maxPrice, mileageRange: { min, max } }));
-    }
+    } else toast.error('Validation error found or values are empty!');
   };
 
   return (
@@ -89,11 +90,9 @@ const SearchForm = () => {
           onChange={handleInputChange}
         />
         <StyledDatalist id="prices">
-          <option>30</option>
-          <option>40</option>
-          <option>50</option>
-          <option>100</option>
-          <option>200</option>
+          {priceOptions.map((brand, idx) => (
+            <StyledOption key={idx}>{brand}</StyledOption>
+          ))}
         </StyledDatalist>
         {errors.maxPrice && <Error>{errors.maxPrice}</Error>}
       </Field>
