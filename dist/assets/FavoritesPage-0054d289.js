@@ -1,0 +1,1 @@
+import{u as i,a as c,e as n,j as s,f as l}from"./index-2dabbdf9.js";import{S as m,C as d}from"./SearchForm-53d37ae1.js";import{S as h}from"./common.styled-45ffa5c9.js";const f=()=>{const a=i(),e=c(n),t=!!e.length,r=o=>a(l(o));return s.jsxs(h,{children:[s.jsx(m,{}),s.jsx("section",{children:t&&s.jsx(d,{cars:e,handleFavoriteClick:r})})]})};export{f as default};
