@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 
@@ -17,7 +18,6 @@ import {
 } from './SearchForm.styled';
 import { setFilter } from '../../redux/slice';
 import { selectFilter } from '../../redux/selectors';
-import brands from '../../data/makes.json';
 import useForm from '../../hooks/useForm';
 import toast from 'react-hot-toast';
 
@@ -28,7 +28,7 @@ const INITIAL_STATE = {
   max: '',
 };
 
-const SearchForm = () => {
+const SearchForm = ({ brands, priceOptions }) => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -47,12 +47,17 @@ const SearchForm = () => {
 
   const carBrandId = nanoid();
   const maxPriceId = nanoid();
-  const priceOptions = Array.apply(null, { length: 15 }).map((_, index) => index * 10 + 10);
 
   const handleSubmit = evt => {
     evt.preventDefault();
     const { carBrand, maxPrice, min, max } = values;
-    if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+    console.log(values);
+
+    console.log(Object.values(values).filter(value => value != ''));
+    if (
+      Object.keys(errors).length === 0 &&
+      Object.values(values).filter(value => value != '').length !== 0
+    ) {
       dispatch(setFilter({ carBrand: carBrand, maxPrice, mileageRange: { min, max } }));
     } else toast.error('Validation error found or values are empty!');
   };
@@ -132,4 +137,8 @@ const SearchForm = () => {
   );
 };
 
+SearchForm.propTypes = {
+  brands: PropTypes.arrayOf(PropTypes.string).isRequired,
+  priceOptions: PropTypes.arrayOf(PropTypes.number).isRequired,
+};
 export default SearchForm;

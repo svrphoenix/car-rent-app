@@ -23,6 +23,12 @@ const applyFilter = (cars, searchFilter) => {
       ({ mileage }) => mileage >= Number(mileageRange.min) && mileage <= Number(mileageRange.max)
     );
 
+  if (mileageRange?.min && !mileageRange?.max)
+    cars = cars.filter(({ mileage }) => mileage >= Number(mileageRange.min));
+
+  if (!mileageRange?.min && mileageRange?.max)
+    cars = cars.filter(({ mileage }) => mileage <= Number(mileageRange.max));
+
   return cars;
 };
 

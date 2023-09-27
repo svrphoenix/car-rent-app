@@ -2,15 +2,19 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledSideBar = styled.aside`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 240px;
-  padding: 8px 0 50px 0;
+  padding: 8px 0;
   min-height: 100vh;
   height: auto;
   background-color: #3470ff;
+  position: fixed;
 `;
 
 const StyleMenuWrapper = styled.ul`
-  margin: 32px 0 120px 0;
+  margin: 32px 0;
 `;
 
 const StyleMenuItem = styled.li`
@@ -37,9 +41,14 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const Image = styled.img`
-  max-width: 208px;
-  width: 208px;
+const ImageThumb = styled.div`
+  width: auto;
+  height: auto;
 `;
 
-export { StyledSideBar, StyleMenuWrapper, StyleMenuItem, StyledLink, Image };
+const Image = styled.img`
+  max-width: auto;
+  margin: 0 auto;
+`;
+
+export { StyledSideBar, StyleMenuWrapper, StyleMenuItem, StyledLink, ImageThumb, Image };

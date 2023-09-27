@@ -16,13 +16,13 @@ import {
   RentalConditionsAccented,
   CarTextWrapper,
   StyledCarDetailsWrapper,
-  StyledButton,
   StyledCarHeader,
   StyledCarDetailsItem,
   StyledCarDetailsText,
 } from './Modal.styled';
 import { getShortAddress, numberWithCommas } from '../../utils';
 import CloseIcon from './CloseIcon';
+import PhoneLink from '../PhoneLink/PhoneLink';
 
 const Modal = ({ car, onToggleModal }) => {
   const {
@@ -147,7 +147,7 @@ const Modal = ({ car, onToggleModal }) => {
             </RentalConditionsList>
           </div>
           <div>
-            <StyledButton href="tel:+380730000000">Rental car</StyledButton>
+            <PhoneLink number="+380730000000">Rental car</PhoneLink>
           </div>
         </CarTextWrapper>
         <CloseIcon

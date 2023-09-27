@@ -1,11 +1,21 @@
-import { StyledSideBar, StyledLink, StyleMenuItem, StyleMenuWrapper } from './SideBar.styled';
+import {
+  StyledSideBar,
+  StyledLink,
+  StyleMenuItem,
+  StyleMenuWrapper,
+  ImageThumb,
+  Image,
+} from './SideBar.styled';
 import logoImg from '/assets/car-rent-logo.png';
 import carImg from '/assets/car-picture.png';
+import PhoneLink from '../PhoneLink/PhoneLink';
 
 const SideBar = () => {
   return (
     <StyledSideBar>
-      <img src={logoImg} alt="Logo" />
+      <ImageThumb>
+        <Image src={logoImg} alt="Logo" />
+      </ImageThumb>
       <nav>
         <StyleMenuWrapper>
           <StyleMenuItem>
@@ -19,7 +29,12 @@ const SideBar = () => {
           </StyleMenuItem>
         </StyleMenuWrapper>
       </nav>
-      <img src={carImg} alt="Car picture" style={{ transform: 'rotate(-10deg)' }} />
+      <div style={{ textAlign: 'center' }}>
+        <PhoneLink number="+380730000000">Click to call us</PhoneLink>
+        <ImageThumb>
+          <Image src={carImg} alt="Car picture" style={{ transform: 'rotate(-10deg)' }} />
+        </ImageThumb>
+      </div>
     </StyledSideBar>
   );
 };
