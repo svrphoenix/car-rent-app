@@ -1,6 +1,6 @@
 # car-rent-app
 
-Car Rental Web Application
+Car Rental Web Application - it helps users find their ideal rental cars easily
 
 This project contains the frontend part of the web application
 [Car Rental](https://svrphoenix.github.io/car-rent-app).
