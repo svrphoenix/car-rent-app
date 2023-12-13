@@ -43,10 +43,6 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 }
 
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

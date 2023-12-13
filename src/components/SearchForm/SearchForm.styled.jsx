@@ -43,6 +43,10 @@ const StyledInput = styled.input`
   line-height: 110%;
   position: relative;
 
+  &:hover {
+    border: solid 1px hsl(0, 0%, 70%);
+  }
+
   &::placeholder {
     color: #121417;
   }
@@ -84,11 +88,14 @@ const InputMin = styled.input`
   background-color: #f7f7fb;
 
   color: #121417;
-  /* font-family: Manrope; */
   font-size: 18px;
-  /* font-style: normal; */
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: calc(20 / 18);
+
+  &:hover {
+    border: solid 1px hsl(0, 0%, 70%);
+  }
+
   &::placeholder {
     color: #121417;
   }
@@ -105,11 +112,13 @@ const InputMax = styled.input`
   outline-color: transparent;
 
   color: #121417;
-  /* font-family: Manrope; */
   font-size: 18px;
-  /* font-style: normal; */
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: calc(20 / 18);
+
+  &:hover {
+    border: solid 1px hsl(0, 0%, 70%);
+  }
   &::placeholder {
     color: #121417;
   }

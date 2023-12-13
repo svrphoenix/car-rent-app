@@ -57,10 +57,12 @@ const useForm = initialCallback => {
         }
       };
 
-      evt.persist();
+      // evt.persist();
 
       validate(evt.target.name, evt.target.value);
-      setValues({ ...values, [evt.target.name]: evt.target.value.trim() });
+      if (typeof evt.target.value === 'number') {
+        setValues({ ...values, [evt.target.name]: evt.target.value });
+      } else setValues({ ...values, [evt.target.name]: evt.target.value.trim() });
     },
     [errors, values]
   );

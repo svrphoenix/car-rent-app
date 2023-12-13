@@ -6,10 +6,7 @@ import {
   StyledForm,
   InputLabel,
   InputGroupLabel,
-  StyledInput,
   Field,
-  StyledDatalist,
-  StyledOption,
   InputMin,
   InputMax,
   ButtonWrapper,
@@ -20,6 +17,9 @@ import { setFilter } from '../../redux/slice';
 import { selectFilter } from '../../redux/selectors';
 import useForm from '../../hooks/useForm';
 import toast from 'react-hot-toast';
+import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+import { useRef } from 'react';
 
 const INITIAL_STATE = {
   carBrand: '',
@@ -28,9 +28,23 @@ const INITIAL_STATE = {
   max: '',
 };
 
-const SearchForm = ({ brands, priceOptions }) => {
+const selectStyles = {
+  padding: '8px 10px 8px 10px',
+  borderRadius: 14,
+  borderColor: 'transparent',
+  outlineColor: 'transparent',
+  backgroundColor: '#f7f7fb',
+  color: '#121417',
+  fontSize: 18,
+  fontWeight: 500,
+  lineHeight: 1.1,
+};
+
+const SearchForm = ({ brands, prices }) => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+  const brandSelectRef = useRef();
+  const priceSelectRef = useRef();
 
   const CreateInitialFilter = () => {
     if (!filter) return { ...INITIAL_STATE };
@@ -40,20 +54,33 @@ const SearchForm = ({ brands, priceOptions }) => {
 
   const { values, errors, handleInputChange, reset } = useForm(CreateInitialFilter);
 
+  const handleSelect = (selected, { name }) => {
+    console.log(selected);
+    console.log(name);
+    let value;
+    if (selected === null) {
+      value = '';
+    } else value = selected.value;
+    return handleInputChange({ target: { name, value } });
+  };
+
   const resetFilter = () => {
     reset(INITIAL_STATE);
     dispatch(setFilter(null));
+    brandSelectRef.current.clearValue();
+    priceSelectRef.current.clearValue();
   };
 
   const carBrandId = nanoid();
   const maxPriceId = nanoid();
 
+  const priceOptions = prices.map(price => ({ value: price, label: price }));
+  const brandOptions = brands.map(brand => ({ value: brand, label: brand }));
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const { carBrand, maxPrice, min, max } = values;
-    console.log(values);
 
-    console.log(Object.values(values).filter(value => value != ''));
     if (
       Object.keys(errors).length === 0 &&
       Object.values(values).filter(value => value != '').length !== 0
@@ -66,39 +93,41 @@ const SearchForm = ({ brands, priceOptions }) => {
     <StyledForm onSubmit={handleSubmit}>
       <Field>
         <InputLabel htmlFor={carBrandId}>Car brand </InputLabel>
-        <StyledInput
-          style={{ width: 200 }}
-          list="brands"
+        <Select
+          ref={brandSelectRef}
+          styles={{
+            control: baseStyles => ({
+              ...baseStyles,
+              ...selectStyles,
+              width: 220,
+            }),
+          }}
           placeholder="Enter the text"
-          name="carBrand"
+          options={brandOptions}
+          isClearable={true}
           id={carBrandId}
-          value={values.carBrand}
-          autoComplete="off"
-          onChange={handleInputChange}
+          name="carBrand"
+          onChange={handleSelect}
         />
-        <StyledDatalist id="brands">
-          {brands.map((brand, idx) => (
-            <StyledOption key={idx}>{brand}</StyledOption>
-          ))}
-        </StyledDatalist>
       </Field>
       <Field>
         <InputLabel htmlFor={maxPriceId}>Price / 1 hour</InputLabel>
-        <StyledInput
-          style={{ width: 120 }}
-          list="prices"
+        <CreatableSelect
+          ref={priceSelectRef}
+          styles={{
+            control: baseStyles => ({
+              ...baseStyles,
+              ...selectStyles,
+              width: 140,
+            }),
+          }}
           placeholder="To $"
-          name="maxPrice"
+          options={priceOptions}
+          isClearable={true}
           id={maxPriceId}
-          value={values.maxPrice}
-          autoComplete="off"
-          onChange={handleInputChange}
+          name="maxPrice"
+          onChange={handleSelect}
         />
-        <StyledDatalist id="prices">
-          {priceOptions.map((brand, idx) => (
-            <StyledOption key={idx}>{brand}</StyledOption>
-          ))}
-        </StyledDatalist>
         {errors.maxPrice && <Error>{errors.maxPrice}</Error>}
       </Field>
       <Field role="group" aria-labelledby="mileage-inputs">
@@ -139,6 +168,6 @@ const SearchForm = ({ brands, priceOptions }) => {
 
 SearchForm.propTypes = {
   brands: PropTypes.arrayOf(PropTypes.string).isRequired,
-  priceOptions: PropTypes.arrayOf(PropTypes.number).isRequired,
+  prices: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 export default SearchForm;
