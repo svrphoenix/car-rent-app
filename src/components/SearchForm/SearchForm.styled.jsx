@@ -93,7 +93,7 @@ const InputMin = styled.input`
   line-height: calc(20 / 18);
 
   &:hover {
-    border: solid 1px hsl(0, 0%, 70%);
+    border: solid 1px #b3b3b3;
   }
 
   &::placeholder {
@@ -117,7 +117,7 @@ const InputMax = styled.input`
   line-height: calc(20 / 18);
 
   &:hover {
-    border: solid 1px hsl(0, 0%, 70%);
+    border: solid 1px #b3b3b3;
   }
   &::placeholder {
     color: #121417;

@@ -55,8 +55,6 @@ const SearchForm = ({ brands, prices }) => {
   const { values, errors, handleInputChange, reset } = useForm(CreateInitialFilter);
 
   const handleSelect = (selected, { name }) => {
-    console.log(selected);
-    console.log(name);
     let value;
     if (selected === null) {
       value = '';
@@ -107,6 +105,7 @@ const SearchForm = ({ brands, prices }) => {
           isClearable={true}
           id={carBrandId}
           name="carBrand"
+          defaultValue={values.carBrand ? { value: values.carBrand, label: values.carBrand } : null}
           onChange={handleSelect}
         />
       </Field>
@@ -126,6 +125,7 @@ const SearchForm = ({ brands, prices }) => {
           isClearable={true}
           id={maxPriceId}
           name="maxPrice"
+          defaultValue={values.maxPrice ? { value: values.maxPrice, label: values.maxPrice } : null}
           onChange={handleSelect}
         />
         {errors.maxPrice && <Error>{errors.maxPrice}</Error>}
