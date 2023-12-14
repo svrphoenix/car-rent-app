@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/car-rent-app/',
   plugins: [react()],
+  server: {
+    open: '/car-rent-app/',
+    host: true,
+  },
 });

@@ -46,8 +46,8 @@ const CarCard = ({ car, handleFavoriteClick }) => {
         <ImageThumb>
           <StyledImage src={imgURL} alt={`${make} ${model}`} />
           <HeartIcon
-            color="rgba(255, 255, 255, 0.8)"
-            activeColor="rgba(52, 112, 255, 1)"
+            color="#ffffffcc"
+            activeColor="#3470ff"
             size={24}
             handleClick={() => handleFavoriteClick(id)}
             isActive={favorite}

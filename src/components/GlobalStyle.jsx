@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Montserrat';
   src: local('Montserrat Regular'), local('Montserrat-Regular'),
-    url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    url('./fonts/Montserrat-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Montserrat';
   src: local('Montserrat Semi Bold'), local('Montserrat-Semi-Bold'),
-    url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    url('./fonts/Montserrat-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Semi bold'), local('Manrope--Semi-bold'),
-    url('./assets/fonts/Manrope-Semibold.woff2') format('woff2');
+    url('./fonts/Manrope-Semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Medium'), local('Manrope--Medium'),
-    url('./assets/fonts/Manrope-Medium.woff2') format('woff2');
+    url('./fonts/Manrope-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope  Regular'), local('Manrope--Regular'),
-    url('./assets/fonts/Manrope-Regular.woff2') format('woff2');
+    url('./fonts/Manrope-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -87,8 +87,14 @@ ul,li,h1,h2,h3,h4,p {
 }
 
 a {
+  cursor:pointer;
+  display: inline-block;
   text-decoration: none;
   color: inherit;
+  
+  /* &:focus{
+    outline: 6px ridge #09023599;
+  } */
 }
 
 ul,
@@ -99,20 +105,22 @@ ol {
 }
 
 img{
-display: block;
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
 button {
+  cursor: pointer;
+  display: inline-block;
   border: 1px solid transparent; 
   font-family: inherit;
-  cursor: pointer;
+  
 }
 
 .hidden{
   overflow: hidden;
 }
-
 `;
+
 export default GlobalStyle;
