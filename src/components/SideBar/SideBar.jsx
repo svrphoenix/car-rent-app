@@ -13,7 +13,7 @@ const SideBar = () => {
   return (
     <StyledSideBar $hasVerticalScrollbar={window.innerHeight < 580}>
       <nav>
-        <Logo href="/" aria-label="logo">
+        <Logo href="/car-rent-app/" aria-label="logo">
           <Image src="./images/car-rent-logo.png" alt="Logo" />
         </Logo>
         <StyleMenuWrapper>
